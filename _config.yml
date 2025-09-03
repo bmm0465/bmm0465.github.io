@@ -1,0 +1,48 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that.
+
+# -- Site Settings --
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# Minimal Mistakes Theme Settings
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+
+# Site Info
+title: "A Better Class: Data & Education"
+subtitle: "ABCDE: 데이터로 더 나은 교실을 꿈꾸다"
+description: "교육 현장의 문제를 데이터로 접근하려는 시도"
+url: "https://bmm0465.github.io" # 반드시 본인 주소로 수정!
+author:
+  name: "김민제" # 본인 이름
+  bio: "Teacher" # 간단한 자기소개
+  avatar: "/assets/images/profile.png" # 프로필 사진 경로 (나중에 추가)
+
+# Navigation links
+main:
+  - title: "About"
+    url: /about/
+  - title: "Portfolio"
+    url: /portfolio/
+  - title: "Categories"
+    url: /categories/
+
+# Defaults for posts
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
