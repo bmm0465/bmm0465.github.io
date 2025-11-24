@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>급식 잔반 데이터로 우리 반 식습관 분석하기 | ABCDE Project</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">ABCDE<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#research">Research</a></li>
+                <li><a href="../blog.html" class="active">Field Notes</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <article class="article-container">
+        <header class="article-header">
+            <div class="article-meta">
+                <span><i class="fa-regular fa-calendar"></i> 2025.11.20</span>
+                <span style="margin: 0 10px;">|</span>
+                <span><i class="fa-solid fa-tag"></i> LifeData</span>
+            </div>
+            <h1>급식 잔반 데이터로 우리 반 식습관 분석하기</h1>
+        </header>
+
+        <div class="article-content">
+            <p>초등 교실에서 점심 시간은 단순한 식사 시간을 넘어, 생활 지도와 식습관 교육이 이루어지는 중요한 시간입니다. 하지만 "골고루 먹어라", "남기지 마라"는 잔소리는 아이들에게 잘 와닿지
+                않습니다. 그래서 저는 <strong>데이터</strong>를 활용해 보기로 했습니다.</p>
+
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                alt="데이터 시각화 예시">
+
+            <h2>1. 문제 정의</h2>
+            <p>우리 반 학생들은 유독 채소 반찬을 많이 남기는 경향이 있었습니다. 매일 발생하는 잔반의 양을 직관적으로 보여주고, 이를 줄이기 위한 동기 부여가 필요했습니다.</p>
+
+            <h2>2. 데이터 수집</h2>
+            <p>데이터 수집은 아주 아날로그적인 방식에서 시작했습니다. 급식 지도 도우미 학생들이 식판을 검사하며 잔반의 양을 5단계 척도로 기록했습니다.</p>
+            <ul>
+                <li><strong>5점:</strong> 싹싹 다 먹음 (국물 조금 남김)</li>
+                <li><strong>4점:</strong> 반찬 1개 조금 남김</li>
+                <li><strong>3점:</strong> 밥이나 반찬을 절반 정도 남김</li>
+                <li><strong>2점:</strong> 많이 남김</li>
+                <li><strong>1점:</strong> 거의 먹지 않음</li>
+            </ul>
+
+            <h2>3. 데이터 분석 및 시각화</h2>
+            <p>수집된 데이터를 엑셀과 Python의 <code>matplotlib</code> 라이브러리를 활용하여 시각화했습니다. 요일별 잔반량, 메뉴별 선호도 등을 그래프로 그려 교실 앞 TV에
+                게시했습니다.</p>
+
+            <pre><code>import matplotlib.pyplot as plt
+import pandas as pd
+
+# 데이터 로드
+data = pd.read_csv('lunch_data.csv')
+
+# 요일별 잔반 평균 시각화
+plt.figure(figsize=(10, 6))
+plt.bar(data['Day'], data['Leftover_Score'], color='#3b82f6')
+plt.title('요일별 평균 잔반 점수')
+plt.show()</code></pre>
+
+            <blockquote>
+                "선생님, 우리가 화요일에 제일 많이 남기네요? 맛없는 메뉴가 나와서 그런가 봐요."
+            </blockquote>
+
+            <p>아이들은 그래프를 보며 스스로 원인을 분석하기 시작했습니다. 단순히 혼나는 것이 아니라, <strong>현상을 객관적으로 인지</strong>하게 된 것입니다.</p>
+
+            <h2>4. 변화와 결론</h2>
+            <p>데이터를 공유한 지 2주 후, 잔반 없는 날(Zero Waste Day) 챌린지를 진행했을 때 성공률이 이전보다 40% 이상 증가했습니다. 데이터는 아이들에게 잔소리가 아닌
+                <strong>피드백</strong>이 되었고, 스스로 행동을 수정하는 계기가 되었습니다.</p>
+
+            <p>이처럼 교실 속 작은 데이터들도 교육적으로 활용하면 큰 변화를 이끌어낼 수 있습니다.</p>
+        </div>
+
+        <div class="article-footer"
+            style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center;">
+            <a href="../blog.html" class="btn btn-secondary">목록으로 돌아가기</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ABCDE Project. Designed by Antigravity.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

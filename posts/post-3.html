@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이썬으로 자리 바꾸기 프로그램 만들기 | ABCDE Project</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">ABCDE<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#research">Research</a></li>
+                <li><a href="../blog.html" class="active">Field Notes</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <article class="article-container">
+        <header class="article-header">
+            <div class="article-meta">
+                <span><i class="fa-regular fa-calendar"></i> 2025.11.02</span>
+                <span style="margin: 0 10px;">|</span>
+                <span><i class="fa-solid fa-tag"></i> Algorithm</span>
+            </div>
+            <h1>파이썬으로 자리 바꾸기 프로그램 만들기</h1>
+        </header>
+
+        <div class="article-content">
+            <p>한 달에 한 번, 교실에서는 보이지 않는 전쟁이 일어납니다. 바로 '자리 바꾸기' 시간입니다. 제비뽑기는 공정해 보이지만, 시력이 나쁜 학생, 키가 큰 학생, 혹은 사이가 좋지 않은
+                학생들을 고려하지 못한다는 단점이 있습니다. 그래서 저는 <strong>제약 조건을 만족하는 자리 배치 알고리즘</strong>을 직접 만들어보기로 했습니다.</p>
+
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                alt="코딩 화면">
+
+            <h2>1. 요구사항 분석</h2>
+            <p>자리 배치 프로그램이 갖춰야 할 조건은 다음과 같았습니다.</p>
+            <ul>
+                <li><strong>필수 조건:</strong> 시력이 나쁜 학생은 앞자리에 배정한다.</li>
+                <li><strong>필수 조건:</strong> 남녀 짝꿍을 기본으로 하되, 성비가 맞지 않으면 일부는 동성 짝꿍을 허용한다.</li>
+                <li><strong>선택 조건:</strong> 지난달 짝꿍과는 다시 짝이 되지 않도록 한다.</li>
+                <li><strong>선택 조건:</strong> 다툼이 있었던 학생들은 서로 멀리 떨어뜨린다.</li>
+            </ul>
+
+            <h2>2. 알고리즘 구현</h2>
+            <p>Python을 사용하여 백트래킹(Backtracking) 기법과 유전 알고리즘(Genetic Algorithm)을 혼합하여 구현했습니다. 모든 경우의 수를 다 따지기에는 연산량이 너무 많기
+                때문에, 제약 조건을 만족하는 해를 효율적으로 찾기 위함입니다.</p>
+
+            <pre><code>def check_constraints(seat_map, student):
+    # 시력 조건 확인
+    if student.vision < 0.5 and seat_map.row > 1:
+        return False
+    # 기피 학생 거리 확인
+    for other in seat_map.neighbors:
+        if other in student.avoid_list:
+            return False
+    return True</code></pre>
+
+            <h2>3. 적용 결과</h2>
+            <p>프로그램을 돌려 나온 결과를 화면에 띄워주자 아이들의 반응이 뜨거웠습니다. "와, 선생님 이거 AI가 짠 거예요?"라며 신기해했습니다.</p>
+            <p>무엇보다 불만이 크게 줄었습니다. "왜 제가 얘랑 짝이에요?"라는 불평 대신, "아, 조건 때문에 이렇게 됐구나"하고 납득하는 분위기가 형성되었습니다. 알고리즘이 가져다준 공정함이 교실의
+                평화를 지켜준 셈입니다.</p>
+
+            <h2>4. 마치며</h2>
+            <p>간단한 코딩 지식만으로도 교실의 고질적인 문제를 해결할 수 있었습니다. 앞으로는 이 프로그램을 웹 서비스로 만들어 다른 선생님들과도 공유할 계획입니다.</p>
+        </div>
+
+        <div class="article-footer"
+            style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center;">
+            <a href="../blog.html" class="btn btn-secondary">목록으로 돌아가기</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ABCDE Project. Designed by Antigravity.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

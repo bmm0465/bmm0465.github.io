@@ -1,0 +1,50 @@
+# Site Settings
+title: ABCDE Project
+description: 교실 속 데이터 이야기 - 초등 교사의 직관과 데이터 사이언스의 정밀함이 만나 교육 현장의 난제들을 해결해 나가는 과정을 기록합니다.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. https://yourusername.github.io
+lang: ko
+
+# Author
+author:
+  name: Debussy
+  email: your.email@example.com
+  github: your-username
+  linkedin: your-profile
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Collections
+collections:
+  projects:
+    output: true
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Debussy"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
